@@ -11,8 +11,9 @@
 # ordered by weight from lowest to highest.
 
 [[main]]
-  name = "📚 文章"
+  name = "文章"
   pageRef = "posts"
+  pre = "tag"
   weight = 10
 
 #[[main]]
