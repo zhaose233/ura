@@ -16,6 +16,11 @@
   pre = "tag"
   weight = 10
 
+[[main]]
+  name = "友鏈"
+  pre = "code"
+  url = "/pages/links"
+
 #[[main]]
 #  name = "Parent"
 #  weight = 20
