@@ -48,7 +48,8 @@ D &= x(k^2 - m^2 +i \epsilon) + y[(k-q)^2 - m^2 +i \epsilon] \\
 $$
 在第三个等号中使用了 $ x + y = 1 $，最后对 $ k $ 做一个 Shift，做变量替换 $ l = k - yq $ 和 $ \Delta = - xyq^2 + m^2 $，就可以把原积分改写为
 $$
-\int {\mathrm{d}^4 k \over (2\pi)^4} {1 \over {k^2 - m^2 +i \epsilon}} {1 \over {(k-q)^2 - m^2 +i \epsilon}} = \int_0^1 \mathrm{d}x \int_0^1 \mathrm{d}y \: \delta(x+y-1) \, {1 \over (2\pi)^4} \int {\mathrm{d}^4 l} {1 \over {(l^2 - \Delta + i\epsilon)^2}}
+\int {\mathrm{d}^4 k \over (2\pi)^4} {1 \over {k^2 - m^2 +i \epsilon}} {1 \over {(k-q)^2 - m^2 +i \epsilon}} \\
+= \int_0^1 \mathrm{d}x \int_0^1 \mathrm{d}y \: \delta(x+y-1) \, {1 \over (2\pi)^4} \int {\mathrm{d}^4 l} {1 \over {(l^2 - \Delta + i\epsilon)^2}}
 $$
 观察这一个积分，其是在闵科夫斯基空间下的四维积分，为了方便地对其应用截断并且方便计算，可以使用 Wick 旋转。
 考虑对 $ l^0 $ 的积分：
@@ -63,7 +64,7 @@ $$
 $$
 \int_{-\infty}^{+\infty}\mathrm{d}l^0 {1 \over {[(l^0)^2-|\vec{l}|^2 - \Delta + i \epsilon]^2}} = -i \int_{-\infty}^{+\infty}\mathrm{d}l^4 {1 \over {[- (l^4)^2 - |\vec{l}|^2 - \Delta + i \epsilon]^2}}
 $$
-闵科夫斯基空间下的积分也就可以改写欧几里德空间下的积分，这时候扔掉 $ i \epsilon $ 也没关系了，因为极点不在虚轴上：
+闵科夫斯基空间下的积分也就可以改写欧几里德空间下的积分，这时候扔掉 $ i \epsilon $ 也没关系了，因为极点不在虚轴上（在 $ \Delta $ 中，$ q^2 $ 是小于 0 的，保证了极点在实轴上）：
 $$
 \int {\mathrm{d}^4 l} {1 \over {(l^2 - \Delta + i\epsilon)^2}} = -i \int {\mathrm{d}^4 \bm{l_E}} {1 \over {(\bm{l_E}^2 + \Delta )^2}}
 $$
@@ -76,14 +77,25 @@ $$
 \begin{aligned}
 \int_{0}^{\Lambda}\mathrm{d}l_E {{l_E}^3 \over {({l_E}^2 + \Delta)^2}} &= {1 \over 2} \int_{0}^{\Lambda}\mathrm{d}{l_E}^2 {{l_E}^2 \over {({l_E}^2 + \Delta)^2}} \\ 
 &= {1 \over 2} \int_{0}^{\Lambda}\mathrm{d}{l_E}^2 \left[{1 \over {{l_E}^2 + \Delta}} - {\Delta \over {({l_E}^2 + \Delta)^2}}\right] \\
-&= {1 \over 2} \left( \ln{{\Lambda^2 + \Delta} \over \Delta} + {\Lambda^2 \over \Lambda^2  + \Delta} \right)
+&= {1 \over 2} \left( \ln{{\Lambda^2 + \Delta} \over \Delta} - {\Lambda^2 \over \Lambda^2  + \Delta} \right) \\
+&= {1 \over 2} \left( \ln{{\Lambda^2} \over \Delta(x,y,q^2)} - 1 \right)
 \end{aligned}
 $$
-下面到了关键的一步。上式结果的两项中，第一项是对数发散的，我们没法对它做什么，但是第二项在 $ \Lambda \to +\infty $ 时就是 1！把上面的所有结果都代入到一开始的积分里，我们可以得到这个图的振幅为（四维球坐标的方向部分积分为 $ 2 \pi^2 $）：
+把上面的所有结果都代入到一开始的积分里，我们可以得到这个图的振幅为（四维球坐标的方向部分积分为 $ 2 \pi^2 $）：
 $$
-\mathcal{M}^{(1)} = -i{\lambda^4 \over q^4} {1 \over 16 \pi^2} \left(1+\int_0^1 \mathrm{d}x \int_0^1 \mathrm{d}y \: \delta(x+y-1) \, \ln{{\Lambda^2 + \Delta} \over \Delta}\right) = -i{\lambda^4 \over q^4} {1 \over 16 \pi^2} \left(1+Z\right)
+\mathcal{M}^{(1)} = -i{\lambda^4 \over q^4} {1 \over 16 \pi^2} \left(1+\int_0^1 \mathrm{d}x \, \ln{{\Lambda^2} \over \Delta}\right)
 $$
-我们把无穷大的常数计为 $ Z $，然后把这个图与一阶的树图相加来得到一个总振幅：
+显然地我们可以把这个振幅改写为
 $$
-\mathcal{M}=-i{\lambda^2 \over q^2}\left[1+{Z \over {16 \pi^2}} + {\lambda^2 \over 16 \pi^2 q^2}\right]
+\mathcal{M}^{(1)} = (-i \lambda)^2 {i \over q^2}(i\Pi(q^2)){i \over q^2}
+$$
+其中 $ i\Pi(q^2) = - {\lambda^4 \over 16 \pi^2} \left(1+\int_0^1 \mathrm{d}x \int_0^1 \mathrm{d}y \: \delta(x+y-1) \, \ln{{\Lambda^2} \over \Delta}\right) $，计算后得到我们上面的结果。
+
+类似的如果有 $ n $ 个极化泡泡，则
+$$
+\mathcal{M}^{(n)} = (-i \lambda)^2 {i \over q^2}\left[(i\Pi(q^2)){i \over q^2}\right]^n
+$$
+把 $ n \to +\infty $ 的所有振幅相加，简单地套用等比数列求和，就可以得到
+$$
+\mathcal{M} = (-i \lambda)^2 
 $$

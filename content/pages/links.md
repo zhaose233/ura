@@ -4,5 +4,6 @@ draft = true
 title = 'Links'
 +++
 
-# 友情鏈接
-
+|簡介|鏈接|
+|----|----|
+|Integral 的博客|<https://blog.i7.homes/>|
