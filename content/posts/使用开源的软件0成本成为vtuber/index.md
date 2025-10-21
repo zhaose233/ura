@@ -25,11 +25,11 @@ vtuber软件可以分为两个部分
 **OpenSeeface-GD的windows发布版本也是整合好的，直接就可以用**
  
 朝色使用OpenSeeFace-gd作为前端：
-![frontend](/images/21-09-12/front-end.png)
+![frontend](/images/front-end.png)
 下面的那个godot debug就是正在运行的程序
 
 朝色使用的后端是OpenSeeFace脚本：
-![backend](/images/21-09-12/back-end.png)
+![backend](/images/back-end.png)
 
 如果你使用的是Windows系统，直接下截它提供的release即可，当然如果你的网络有点小问题不太方便，这是一个镜像站点的下截链接（写本文时最新）：
  - <https://hub.fastgit.org/you-win/openseeface-gd/releases/download/0.6.0/OpenSeeFace-GD.zip>
@@ -37,7 +37,7 @@ vtuber软件可以分为两个部分
 下截好后解压运行exe即可，如果是linux自行按照readme来吧，挺顺利就弄好了（朝色我用的就是linux呢）
  
 之后你只需要点击“run face tracker”开始追踪面部，如果姿势很奇怪的话点setoffset，然后按空格键就可以恢复到正面对着屏幕的姿势。
-![error](/images/21-09-12/error.png)
+![error](/images/error.png)
 奇奇怪怪的bug
 
 当然如果你现在的人物还是那只小黄鸭的话。。。你自然需要一个其它的模型啦。这个项目支持glb与vrm格式的人物模型。vrm的话有个网站上面有很多，有的甚至可以商用和二次发布。
@@ -45,12 +45,12 @@ vtuber软件可以分为两个部分
 不知道访问情况如何，当然你也可以制做自己的vrm，steam上有pixiv的制做工具，上手还可以吧，不过linux下的兼容不行，比较麻烦。
  - [VRoid Studio](https://store.steampowered.com/app/1486350/VRoid_Studio_v0140/)
 再用Load Model找到你的vrm就行了
-![loadmodel](/images/21-09-12/load-model.png)
+![loadmodel](/images/load-model.png)
 
 加截之后如果要调整肢体姿势，在Pose里选上要调的关节，apply一下，用鼠标滚轮就能调啦
 
 至于直播或者录屏的软件，这里推荐一个跨平台开源的软件OBS Studio
-![OBS Studio](/images/21-09-12/obs.png)
+![OBS Studio](/images/obs.png)
  - <https://obsproject.com>
 或者你也可以从我的云盘下载：
  - [OBS 27.0.1 windows](https://pan.zhaose.cyou/home/Tools/Windows/OBS-Studio-27.0.1-Full-Installer-x64.exe)
