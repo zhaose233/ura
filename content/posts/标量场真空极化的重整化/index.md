@@ -4,6 +4,8 @@ draft = false
 title = '标量场真空极化的重整化'
 +++
 
+# 背景
+
 考虑一个有质量的复标量场 $ \phi $ 和一个无质量的实标量场 $ \chi $ 耦合，总拉氏量可以写作
 $$
 \mathcal{L}_B = \partial_\mu \phi^* \, \partial^\mu \phi - m^2\phi^* \phi + {1 \over 2} \partial_\mu \chi \, \partial^\mu \chi - \lambda \phi^* \phi \chi
@@ -41,6 +43,10 @@ $$
 $$
 I(q) = \int {\mathrm{d}^4 k \over (2\pi)^4} {1 \over {k^2 - m^2 +i \epsilon}} {1 \over {(k-q)^2 - m^2 +i \epsilon}}
 $$
+
+# 积分计算
+## Feynman 改写
+
 先改写一下这个积分，纯粹为了方便后面的处理。使用如下的等式：
 $$
 {1 \over {A B}} = \int_0^1 \mathrm{d}x {1 \over {[x A + (1-x) B]^2}} = \int_0^1 \mathrm{d}x \int_0^1 \mathrm{d}y \: \delta(x+y-1) \, {1 \over {[x A + y B]^2}} 
@@ -59,6 +65,9 @@ $$
 \int {\mathrm{d}^4 k \over (2\pi)^4} {1 \over {k^2 - m^2 +i \epsilon}} {1 \over {(k-q)^2 - m^2 +i \epsilon}} \\
 = \int_0^1 \mathrm{d}x \int_0^1 \mathrm{d}y \: \delta(x+y-1) \, {1 \over (2\pi)^4} \int {\mathrm{d}^4 l} {1 \over {(l^2 - \Delta + i\epsilon)^2}}
 $$
+
+## Wick 旋转
+
 观察这一个积分，其是在闵科夫斯基空间下的四维积分，为了方便地对其应用截断并且方便计算，可以使用 Wick 旋转。
 考虑对 $ l^0 $ 的积分：
 $$
@@ -76,6 +85,9 @@ $$
 $$
 \int {\mathrm{d}^4 l} {1 \over {(l^2 - \Delta + i\epsilon)^2}} = i \int {\mathrm{d}^4 \bm{l_E}} {1 \over {(\bm{l_E}^2 + \Delta )^2}}
 $$
+
+# 应用硬截断
+
 下面考察四维欧几里德空间的积分，应用四维球坐标，并且对 $ l_E $ 应用一个截断 $ \Lambda $（这个截断是洛伦兹不变的，变换回闵氏空间之后可以看出来，然而如果在上面的闵氏空间中先对 $ l^0 $ 做围道积分再对三维动量作截断的话，那截断就不是洛伦兹不变的）：
 $$
 \int {\mathrm{d}^4 \bm{l_E}} {1 \over {(\bm{l_E}^2 + \Delta)^2}} =\lim_{\Lambda \to + \infty} \int \mathrm{d}\Omega_4 \int_{0}^{\Lambda}\mathrm{d}l_E {{l_E}^3 \over {({l_E}^2 + \Delta)^2}}
@@ -93,7 +105,11 @@ $$
 $$
 I(q) = {i \over 16 \pi^2 } (\ln{\Lambda^2 \over \mu^2} - 1 - \int_0^1\mathrm{d}x \ln{\Delta \over \mu^2})
 $$
-其中引入的 $ \mu $ 是一个任意的质量标度，保证对数内是无量纲的。考虑更多的圈图（两圈图，三圈图等等）可以发现 $ \chi $ 的总传播子为一个等比数列，有
+其中引入的 $ \mu $ 是一个任意的质量标度，保证对数内是无量纲的。
+
+## 得出 $ \chi $ 传播子并重整化
+
+考虑更多的圈图（两圈图，三圈图等等）可以发现 $ \chi $ 的总传播子为一个等比数列，有
 $$
 G_\chi(q) = \sum_{n=0}^{\infty}G_\chi^{(n)} ={i \over q^2 - i \lambda^2 I(q)}
 $$
